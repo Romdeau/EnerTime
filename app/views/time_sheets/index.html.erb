@@ -1,31 +1,28 @@
-<h1>Listing time_sheets</h1>
+<h1>Listing Time Sheets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="content">
+  <div class="">
+    <div class="row">
+      <div class="col-sm-3">User</div>
+      <div class="col-sm-3">Start date</div>
+      <div class="col-sm-3">End date</div>
+    </div>
+  </div>
 
   <tbody>
     <% @time_sheets.each do |time_sheet| %>
-      <tr>
-        <td><%= time_sheet.user %></td>
-        <td><%= time_sheet.start_date %></td>
-        <td><%= time_sheet.end_date %></td>
-        <td><%= link_to 'Show', time_sheet %></td>
-        <td><%= link_to 'Edit', edit_time_sheet_path(time_sheet) %></td>
-        <td><%= link_to 'Destroy', time_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-sm-3"><%= format_name(time_sheet.user.email) %></div>
+        <div class="col-sm-3"><%= time_sheet.start_date %></div>
+        <div class="col-sm-3"><%= time_sheet.end_date %></div>
+        <div class="col-sm-3 btn-group">
+          <%= link_to 'Show', time_sheet, class: "btn btn-xs btn-info" %>
+          <%= link_to 'Edit', edit_time_sheet_path(time_sheet), class: "btn btn-xs btn-info" %>
+          <%= link_to 'Destroy', time_sheet, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-info" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Time sheet', new_time_sheet_path %>
+  </div>
+  <br>
+  <%= link_to 'New Time sheet', new_user_time_sheet_path(current_user), class: "btn btn-sm btn-primary" %>
+</div>

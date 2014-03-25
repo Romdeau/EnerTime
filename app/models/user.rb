@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :toil_request, dependent: :destroy
   has_many :spend_toil, dependent: :destroy
   has_many :leave_request, dependent: :destroy
+  has_many :time_sheet
+  has_many :time_day
+  has_many :time_item
 
   ROLES = %w[user manager admin]
 

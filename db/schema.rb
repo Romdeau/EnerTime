@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313044051) do
+ActiveRecord::Schema.define(version: 20140325012047) do
 
   create_table "leave_requests", force: true do |t|
     t.integer  "user_id"
@@ -33,6 +33,41 @@ ActiveRecord::Schema.define(version: 20140313044051) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "time_days", force: true do |t|
+    t.date     "time_day"
+    t.integer  "time_sheet_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "time_days", ["time_sheet_id"], name: "index_time_days_on_time_sheet_id"
+  add_index "time_days", ["user_id"], name: "index_time_days_on_user_id"
+
+  create_table "time_items", force: true do |t|
+    t.integer  "time_day_id"
+    t.integer  "user_id"
+    t.integer  "time_lodged"
+    t.string   "description"
+    t.string   "category"
+    t.string   "cost_centre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "time_items", ["time_day_id"], name: "index_time_items_on_time_day_id"
+  add_index "time_items", ["user_id"], name: "index_time_items_on_user_id"
+
+  create_table "time_sheets", force: true do |t|
+    t.integer  "user_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "time_sheets", ["user_id"], name: "index_time_sheets_on_user_id"
 
   create_table "toil_requests", force: true do |t|
     t.integer  "user_id"

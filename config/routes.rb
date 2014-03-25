@@ -1,14 +1,8 @@
 Enerleave::Application.routes.draw do
-  resources :time_items
-
-  resources :time_days
-
-  resources :time_sheets
-
   root 'leave_requests#index'
 
   resources :users do
-
+    resources :time_sheets, only: [:new, :create]
   end
   resources :user_sessions
 
@@ -41,9 +35,16 @@ Enerleave::Application.routes.draw do
   get '/spend_toils/:id/approve_toil' => 'spend_toils#approve_toil', :as => :approve_toil
   get '/toil_requests/:id/approve_toil' => 'toil_requests#approve_toil', :as => :approve_toil_request
 
+  #timesheet routes
+  resources :time_items, only: [:index, :show, :edit, :update, :destroy]
 
+  resources :time_days, only: [:index, :show, :edit, :update, :destroy] do
+    resources :time_items, only: [:new, :create]
+  end
 
-
+  resources :time_sheets, only: [:index, :show, :edit, :update, :destroy] do
+    resources :time_days, only: [:new, :create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

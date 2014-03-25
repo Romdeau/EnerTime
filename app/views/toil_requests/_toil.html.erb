@@ -12,8 +12,8 @@
       <div class="row">
         <div class="col-sm-2"><%= format_name(toil_request.user.email) %></div>
         <div class="col-sm-2"><%= toil_request.initial_amount %>(<%= toil_request.amount %>)</div>
-        <div class="col-sm-2"><td><%= toil_request.date_accrued_end %></div>
-        <div class="col-sm-2"><td><%= toil_request.approved %></div>
+        <div class="col-sm-2"><div class="col-sm-3"><%= toil_request.date_accrued_end %></div>
+        <div class="col-sm-2"><div class="col-sm-3"><%= toil_request.approved %></div>
         <div class="btn-group col-sm-4">
           <%= link_to "Show", toil_request, class: "btn btn-xs btn-info" %>
           <% if toil_request.approved == 'false' %>
@@ -39,8 +39,8 @@
       <div class="row">
         <div class="col-sm-2"><%= format_name(spend_toil.user.email) %></div>
         <div class="col-sm-2"><%= spend_toil.initial_amount%> (<%= spend_toil.amount %>)</div>
-        <div class="col-sm-2"><td><%= spend_toil.leave_date %></div>
-        <div class="col-sm-2"><td><%= spend_toil.approved %></div>
+        <div class="col-sm-2"><div class="col-sm-3"><%= spend_toil.leave_date %></div>
+        <div class="col-sm-2"><div class="col-sm-3"><%= spend_toil.approved %></div>
         <div class="btn-group col-sm-4">
           <%= link_to "Show", spend_toil, class: "btn btn-xs btn-info" %>
           <% if spend_toil.approved == 'false' %>

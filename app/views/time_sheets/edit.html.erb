@@ -1,6 +1,10 @@
-<h1>Editing time_sheet</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @time_sheet %> |
-<%= link_to 'Back', time_sheets_path %>
+<div class="page-header">
+  <h1>Editing Time Sheet for <% format_name(@time_sheet.user.email)%></h1>
+</div>
+<div id="content">
+  <div class="paragraph">
+    <%= render 'form' %>
+    <%= link_to 'Show', @time_sheet %> |
+    <%= link_to 'Back', time_sheets_path %>
+</div>
+</div>

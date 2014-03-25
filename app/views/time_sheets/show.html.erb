@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Time Sheet for <%= format_name(@time_sheet.user.email) %></h1>
+  <h3><%= @time_sheet.start_date.strftime("%A the #{@time_sheet.start_date.day.ordinalize} of %B") %> - <%= @time_sheet.end_date.strftime("%A the #{@time_sheet.start_date.day.ordinalize} of %B, %Y") %></h3>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @time_sheet.user %>
-</p>
+<div id="content">
+  <div class="paragraph">
+    <p>
+      render 'timesheet_summary'
+    </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @time_sheet.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @time_sheet.end_date %>
-</p>
-
-<%= link_to 'Edit', edit_time_sheet_path(@time_sheet) %> |
-<%= link_to 'Back', time_sheets_path %>
+    <%= link_to 'Edit', edit_time_sheet_path(@time_sheet) %> |
+    <%= link_to 'Back', time_sheets_path %>
+  </div>
+</div>

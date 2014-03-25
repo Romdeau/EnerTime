@@ -2,35 +2,35 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Timeday</th>
-      <th>User</th>
-      <th>Time</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Cost centre</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <div class="row">
+      <div class="col-sm-3">Timeday</div>
+      <div class="col-sm-3">User</div>
+      <div class="col-sm-3">Time</div>
+      <div class="col-sm-3">Description</div>
+      <div class="col-sm-3">Category</div>
+      <div class="col-sm-3">Cost centre</div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
 
   <tbody>
     <% @time_items.each do |time_item| %>
-      <tr>
-        <td><%= time_item.timeday %></td>
-        <td><%= time_item.user %></td>
-        <td><%= time_item.time %></td>
-        <td><%= time_item.description %></td>
-        <td><%= time_item.category %></td>
-        <td><%= time_item.cost_centre %></td>
-        <td><%= link_to 'Show', time_item %></td>
-        <td><%= link_to 'Edit', edit_time_item_path(time_item) %></td>
-        <td><%= link_to 'Destroy', time_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-sm-3"><%= time_item.timeday %></div>
+        <div class="col-sm-3"><%= time_item.user %></div>
+        <div class="col-sm-3"><%= time_item.time %></div>
+        <div class="col-sm-3"><%= time_item.description %></div>
+        <div class="col-sm-3"><%= time_item.category %></div>
+        <div class="col-sm-3"><%= time_item.cost_centre %></div>
+        <div class="col-sm-3"><%= link_to 'Show', time_item %></div>
+        <div class="col-sm-3"><%= link_to 'Edit', edit_time_item_path(time_item) %></div>
+        <div class="col-sm-3"><%= link_to 'Destroy', time_item, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 <br>
 

@@ -10,21 +10,26 @@ class TimeSheetsController < ApplicationController
   # GET /time_sheets/1
   # GET /time_sheets/1.json
   def show
+    
   end
 
   # GET /time_sheets/new
   def new
     @time_sheet = TimeSheet.new
+    @user = User.find(params[:user_id])
   end
 
   # GET /time_sheets/1/edit
   def edit
+
   end
 
   # POST /time_sheets
   # POST /time_sheets.json
   def create
     @time_sheet = TimeSheet.new(time_sheet_params)
+    @time_sheet.user = User.find(params[:user_id])
+    @time_sheet.end_date = @time_sheet.start_date + 6.days
 
     respond_to do |format|
       if @time_sheet.save
@@ -69,6 +74,6 @@ class TimeSheetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_sheet_params
-      params.require(:time_sheet).permit(:user_id, :start_date, :end_date)
+      params.require(:time_sheet).permit(:start_date)
     end
 end

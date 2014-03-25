@@ -7,10 +7,12 @@
 <div id="content">
   <div class="paragraph">
     <p>
-      render 'timesheet_summary'
+      <%= render 'timesheet_summary' %>
     </p>
-
-    <%= link_to 'Edit', edit_time_sheet_path(@time_sheet) %> |
-    <%= link_to 'Back', time_sheets_path %>
+    <div class="btn-group">
+      <%= link_to 'New Day', new_time_sheet_time_day_path(@time_sheet), class: "btn btn-sm btn-primary" %>
+      <%= link_to 'Edit', edit_time_sheet_path(@time_sheet), class: "btn btn-sm btn-primary" %>
+      <%= link_to 'Back', time_sheets_path, class: "btn btn-sm btn-primary" %>
+    </div>
   </div>
 </div>

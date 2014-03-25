@@ -5,4 +5,5 @@ class TimeDay < ActiveRecord::Base
   has_many :time_item, dependent: :destroy
 
   validates :user, :time_sheet, :time_day, presence: true
+  validates_uniqueness_of :time_day, :scope => :user
 end

@@ -1,0 +1,24 @@
+<div id="content">
+  <div class="paragraph">
+    <div class="row">
+      <div class="col-sm-3">Time day</div>
+      <div class="col-sm-3">Time sheet</div>
+      <div class="col-sm-3">User</div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3"></div>
+    </div>
+    <% @time_days.each do |time_day| %>
+      <div class="row">
+        <div class="col-sm-3"><%= time_day.time_day.strftime("%d %B, %Y") %></div>
+        <div class="col-sm-3"><%= time_day.time_sheet.start_date.strftime("%d %B, %Y") %></div>
+        <div class="col-sm-3"><%= format_name(time_day.user.email) %></div>
+        <div class="col-sm-3 btn-group">
+          <%= link_to 'Show', time_day, class: "btn btb-xs btn-info" %>
+          <%= link_to 'Edit', edit_time_day_path(time_day), class: "btn btb-xs btn-info" %>
+          <%= link_to 'Destroy', time_day, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btb-xs btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

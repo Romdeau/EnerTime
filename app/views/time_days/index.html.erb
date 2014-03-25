@@ -1,31 +1,7 @@
 <h1>Listing time_days</h1>
 
-<table>
-  <thead>
-    <div class="row">
-      <div class="col-sm-3">Time day</div>
-      <div class="col-sm-3">Time sheet</div>
-      <div class="col-sm-3">User</div>
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3"></div>
-      <div class="col-sm-3"></div>
-    </div>
-  </div>
-
-  <tbody>
-    <% @time_days.each do |time_day| %>
-      <div class="row">
-        <div class="col-sm-3"><%= time_day.time_day %></div>
-        <div class="col-sm-3"><%= time_day.time_sheet %></div>
-        <div class="col-sm-3"><%= time_day.user %></div>
-        <div class="col-sm-3"><%= link_to 'Show', time_day %></div>
-        <div class="col-sm-3"><%= link_to 'Edit', edit_time_day_path(time_day) %></div>
-        <div class="col-sm-3"><%= link_to 'Destroy', time_day, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= render 'time_days/time_days_summary' %>
 
 <br>
 
-<%= link_to 'New Time day', new_time_day_path %>
+<%= link_to 'New Time day', time_days_path %>

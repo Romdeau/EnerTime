@@ -15,6 +15,7 @@ class TimeDaysController < ApplicationController
   # GET /time_days/new
   def new
     @time_day = TimeDay.new
+    @time_sheet = User.find(params[:time_sheet_id])
   end
 
   # GET /time_days/1/edit
@@ -25,6 +26,8 @@ class TimeDaysController < ApplicationController
   # POST /time_days.json
   def create
     @time_day = TimeDay.new(time_day_params)
+    @time_day.time_sheet = TimeSheet.find(params[:time_sheet_id])
+    @time_day.user = @time_day.time_sheet.user
 
     respond_to do |format|
       if @time_day.save
@@ -69,6 +72,6 @@ class TimeDaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_day_params
-      params.require(:time_day).permit(:time_day, :time_sheet_id, :user_id)
+      params.require(:time_day).permit(:time_day)
     end
 end

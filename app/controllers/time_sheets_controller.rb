@@ -4,13 +4,13 @@ class TimeSheetsController < ApplicationController
   # GET /time_sheets
   # GET /time_sheets.json
   def index
-    @time_sheets = TimeSheet.all
+    @time_sheets = current_user.time_sheet
   end
 
   # GET /time_sheets/1
   # GET /time_sheets/1.json
   def show
-    
+
   end
 
   # GET /time_sheets/new
@@ -33,10 +33,15 @@ class TimeSheetsController < ApplicationController
 
     respond_to do |format|
       if @time_sheet.save
-        format.html { redirect_to @time_sheet, notice: 'Time sheet was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @time_sheet }
+        if @time_sheet.populate_week
+          format.html { redirect_to @time_sheet, notice: 'Time sheet was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @time_sheet }
+        else
+          format.html { render action: 'new', alert: 'failed to auto-populate timesheet days' }
+          format.json { render json: @time_sheet.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', :user_id => params[:user_id]  }
         format.json { render json: @time_sheet.errors, status: :unprocessable_entity }
       end
     end

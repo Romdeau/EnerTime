@@ -15,7 +15,7 @@ class TimeDaysController < ApplicationController
   # GET /time_days/new
   def new
     @time_day = TimeDay.new
-    @time_sheet = User.find(params[:time_sheet_id])
+    @time_sheet = TimeSheet.find(params[:time_sheet_id])
   end
 
   # GET /time_days/1/edit

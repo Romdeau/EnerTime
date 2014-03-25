@@ -1,0 +1,31 @@
+<h1>Listing time_days</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time day</th>
+      <th>Time sheet</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_days.each do |time_day| %>
+      <tr>
+        <td><%= time_day.time_day %></td>
+        <td><%= time_day.time_sheet %></td>
+        <td><%= time_day.user %></td>
+        <td><%= link_to 'Show', time_day %></td>
+        <td><%= link_to 'Edit', edit_time_day_path(time_day) %></td>
+        <td><%= link_to 'Destroy', time_day, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Time day', new_time_day_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time day:</strong>
+  <%= @time_day.time_day %>
+</p>
+
+<p>
+  <strong>Time sheet:</strong>
+  <%= @time_day.time_sheet %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @time_day.user %>
+</p>
+
+<%= link_to 'Edit', edit_time_day_path(@time_day) %> |
+<%= link_to 'Back', time_days_path %>

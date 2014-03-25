@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timeday_id: 
+  user_id: 
+  time: 1
+  description: MyString
+  category: MyString
+  cost_centre: MyString
+
+two:
+  timeday_id: 
+  user_id: 
+  time: 1
+  description: MyString
+  category: MyString
+  cost_centre: MyString
